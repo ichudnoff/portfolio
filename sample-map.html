@@ -1,23 +1,35 @@
- <!DOCTYPE html>
-2 <html>
-3 <head>
-4 <link rel="stylesheet" type="text/css" href="css/mapPage.css">
-5 </head>
-6
-6
-7 <body>
-8 <h1>Sample Map</h1>
-9 <div id="map_canvas"></div>
-10
-11 <!-- Let's put our JavaScript down here --------------------------------------------->
-12 <!-- Load the external JavaScript file with the map definition code -->
-13 <script src="js/mapPage_03.js"></script>
-14
-15 <!-- Load the API in asynchronous mode and execute the initialize
-16 function when done -->
-17
-18 <script async defer
-19 src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=<AIzaSyCbpPpvR5K4Gbs4_2Ft-ZDY0tpCdFZ4R34
->">
-20 </script>
-21 </body
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbpPpvR5K4Gbs4_2Ft-ZDY0tpCdFZ4R34&callback=initMap"
+    async defer></script>
+  </body>
+</html>
