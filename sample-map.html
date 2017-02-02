@@ -33,3 +33,14 @@
     async defer></script>
   </body>
 </html>
+function initialize() {
+2 var classroom = new google.maps.LatLng(36.232080,-106.309966)
+3 var mapOptions = {
+4 zoom: 8,
+5 center: classroom,
+6 mapTypeId: google.maps.MapTypeId.HYBRID
+7 };
+8 var map = new google.maps.Map(
+9 document.getElementById("map_canvas"),
+10 mapOptions);
+11 }
