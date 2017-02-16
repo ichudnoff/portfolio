@@ -44,7 +44,24 @@
    });
    google.maps.event.addListener(CathedralMarker, 'click', function() {
    CathedralInfoWindow.open(map,CathedralMarker);
-   });   
+   }); 
+
+  var Waterfall = new google.maps.LatLng(42.629132,23.253803) 
+        var WaterfallMarker = new google.maps.Marker({
+ position: Waterfall,
+ 	title:"Boyana Waterfall"
+	});
+ 	WaterfallMarker.setMap(map);
+      
+     var WaterfallInfoContent = '<div class="infoBox">' +
+   '<p>Waterfall. Cooool</p>' +
+   '</div>'
+   var WaterfallInfoWindow = new google.maps.InfoWindow({
+   content: WaterfallInfoContent
+   });
+   google.maps.event.addListener(WaterfallMarker, 'click', function() {
+   WaterfallInfoWindow.open(map,WaterfallMarker);
+   });	      
     
       }
     </script>
