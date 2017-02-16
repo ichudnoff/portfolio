@@ -63,6 +63,23 @@
    WaterfallInfoWindow.open(map,WaterfallMarker);
    });	      
     
+var Vitosha = new google.maps.LatLng(42.551707,23.249914) 
+        var VitoshaMarker = new google.maps.Marker({
+ position: Vitosha,
+ 	title:"Vitosha Mountain"
+	});
+ 	VitoshaMarker.setMap(map);
+      
+     var VitoshaInfoContent = '<div class="infoBox">' +
+   '<p>Big Mountain</p>' +
+   '</div>'
+   var VitoshaInfoWindow = new google.maps.InfoWindow({
+   content: VitoshaInfoContent
+   });
+   google.maps.event.addListener(VitoshaMarker, 'click', function() {
+   VitoshaInfoWindow.open(map,VitoshaMarker);
+   });		      
+	      
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbpPpvR5K4Gbs4_2Ft-ZDY0tpCdFZ4R34&callback=initMap"
