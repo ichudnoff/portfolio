@@ -62,6 +62,23 @@
    google.maps.event.addListener(CathedralMarker, 'click', function() {
    CathedralInfoWindow.open(map,CathedralMarker);
    }); 
+	      
+    var Amphitheater = new google.maps.LatLng(42.697647,23.328330) 
+        var AmphitheaterMarker = new google.maps.Marker({
+ position: Amphitheater,
+ 	title:"Amphitheater of Serdica"
+	});
+ 	AmphitheaterMarker.setMap(map);
+    
+    var AmphitheaterInfoContent = '<div class="infoBox">' +
+   '<p>Amphitheater of Serdica is a hotel built upon old Roman ruins.</p>' +
+   '</div>'
+   var AmphitheaterInfoWindow = new google.maps.InfoWindow({
+   content: AmphitheaterInfoContent
+   });
+   google.maps.event.addListener(AmphitheaterMarker, 'click', function() {
+   AmphitheaterInfoWindow.open(map,AmphitheaterMarker);
+   }); 	      
 
   var Waterfall = new google.maps.LatLng(42.629132,23.253803) 
         var WaterfallMarker = new google.maps.Marker({
