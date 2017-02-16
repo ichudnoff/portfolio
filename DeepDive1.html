@@ -25,7 +25,7 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 42.695347, lng: 23.321879},
-          zoom: 13, 
+          zoom: 12, 
           mapTypeId: google.maps.MapTypeId.HYBRID
         });
        
@@ -45,8 +45,7 @@
    google.maps.event.addListener(CathedralMarker, 'click', function() {
    CathedralInfoWindow.open(map,CathedralMarker);
    });   
-    
-      }
+          
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbpPpvR5K4Gbs4_2Ft-ZDY0tpCdFZ4R34&callback=initMap"
     async defer></script>
