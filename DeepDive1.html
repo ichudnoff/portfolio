@@ -25,10 +25,27 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 42.695347, lng: 23.321879},
-          zoom: 12, 
+          zoom: 11, 
           mapTypeId: google.maps.MapTypeId.HYBRID
         });
        
+	var Sofia = new google.maps.LatLng(42.696356,23.322565) 
+        var SofiaMarker = new google.maps.Marker({
+ position: Sofia,
+ 	title:"City of Sofia"
+	});
+ 	SofiaMarker.setMap(map);
+    
+    var SofiaInfoContent = '<div class="infoBox">' +
+   '<p>Sofia is not only the largest city in Bulgaria, but it is also the capitol. It is known as the cheapest capitol in Europe. </br>' 	
+   '</div>'
+   var SofiaInfoWindow = new google.maps.InfoWindow({
+   content: SofiaInfoContent
+   });
+   google.maps.event.addListener(SofiaMarker, 'click', function() {
+   SofiaInfoWindow.open(map,SofiaMarker);
+   }); 
+      
         var Cathedral = new google.maps.LatLng(42.696039,23.332922) 
         var CathedralMarker = new google.maps.Marker({
  position: Cathedral,
@@ -37,15 +54,67 @@
  	CathedralMarker.setMap(map);
     
     var CathedralInfoContent = '<div class="infoBox">' +
-   '<p>Old Cathedral. Cooooool</p>' +
+   '<p>One of the largest Eastern Orthodox Cathedrals in the world.</p>' +
    '</div>'
    var CathedralInfoWindow = new google.maps.InfoWindow({
    content: CathedralInfoContent
    });
    google.maps.event.addListener(CathedralMarker, 'click', function() {
    CathedralInfoWindow.open(map,CathedralMarker);
-   });   
-          
+   }); 
+	      
+    var Amphitheater = new google.maps.LatLng(42.697647,23.328330) 
+        var AmphitheaterMarker = new google.maps.Marker({
+ position: Amphitheater,
+ 	title:"Amphitheater of Serdica"
+	});
+ 	AmphitheaterMarker.setMap(map);
+    
+    var AmphitheaterInfoContent = '<div class="infoBox">' +
+   '<p>Amphitheater of Serdica is a hotel built upon old Roman ruins.</p>' +
+   '</div>'
+   var AmphitheaterInfoWindow = new google.maps.InfoWindow({
+   content: AmphitheaterInfoContent
+   });
+   google.maps.event.addListener(AmphitheaterMarker, 'click', function() {
+   AmphitheaterInfoWindow.open(map,AmphitheaterMarker);
+   }); 	      
+
+  var Waterfall = new google.maps.LatLng(42.629132,23.253803) 
+        var WaterfallMarker = new google.maps.Marker({
+ position: Waterfall,
+ 	title:"Boyana Waterfall"
+	});
+ 	WaterfallMarker.setMap(map);
+      
+     var WaterfallInfoContent = '<div class="infoBox">' +
+   '<p>Waterfall. Cooool</p>' +
+   '</div>'
+   var WaterfallInfoWindow = new google.maps.InfoWindow({
+   content: WaterfallInfoContent
+   });
+   google.maps.event.addListener(WaterfallMarker, 'click', function() {
+   WaterfallInfoWindow.open(map,WaterfallMarker);
+   });	      
+    
+var Vitosha = new google.maps.LatLng(42.551707,23.249914) 
+        var VitoshaMarker = new google.maps.Marker({
+ position: Vitosha,
+ 	title:"Vitosha Mountain"
+	});
+ 	VitoshaMarker.setMap(map);
+      
+     var VitoshaInfoContent = '<div class="infoBox">' +
+   '<p>Big Mountain</p>' +
+   '</div>'
+   var VitoshaInfoWindow = new google.maps.InfoWindow({
+   content: VitoshaInfoContent
+   });
+   google.maps.event.addListener(VitoshaMarker, 'click', function() {
+   VitoshaInfoWindow.open(map,VitoshaMarker);
+   });		      
+	      
+      }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbpPpvR5K4Gbs4_2Ft-ZDY0tpCdFZ4R34&callback=initMap"
     async defer></script>
