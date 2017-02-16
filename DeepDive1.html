@@ -29,6 +29,23 @@
           mapTypeId: google.maps.MapTypeId.HYBRID
         });
        
+	var Sofia = new google.maps.LatLng(42.696356,23.322565) 
+        var SofiaMarker = new google.maps.Marker({
+ position: Sofia,
+ 	title:"City of Sofia"
+	});
+ 	SofiaMarker.setMap(map);
+    
+    var SofiaInfoContent = '<div class="infoBox">' +
+   '<p>The City of Sofia, Bulgaria</p>' +
+   '</div>'
+   var SofiaInfoWindow = new google.maps.InfoWindow({
+   content: SofiaInfoContent
+   });
+   google.maps.event.addListener(SofiaMarker, 'click', function() {
+   SofiaInfoWindow.open(map,SofiaMarker);
+   }); 
+      
         var Cathedral = new google.maps.LatLng(42.696039,23.332922) 
         var CathedralMarker = new google.maps.Marker({
  position: Cathedral,
