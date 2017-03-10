@@ -69,17 +69,17 @@
  	title:"Amphitheater of Serdica"
 	});
  	AmphitheaterMarker.setMap(map);
-    
-    var AmphitheaterInfoContent = '<div class="infoBox">' +
-   '<p>Amphitheater of Serdica was built in the Ancient Roman city of Ulpia Serdica, now Sofia. The amphitheater was built during the 3rd-4th century AD on top of the remains of an old theater. Fights between wild beasts and gladiators were hosted in the amphitheater. Although it was ravaged by Goths, the amphitheater remained in use until its abandonment during the 5th century AD.</p>' +
-   '</div>
+ 	
+ 	 var AmphitheaterInfoContent = '<div class="infoBox">' +
+   '<p>Amphitheater of Serdica was built in the Ancient Roman city of Ulpia Serdica, now Sofia. The amphitheater was built during the 3rd-4th century AD on top of the remains of an old theater. Fights between wild beasts and gladiators were hosted in the amphitheater. Although it was ravaged by Goths, the amphitheater remained in use until its abandonment during the 5th century.</p>' +
+   '</div>'
    var AmphitheaterInfoWindow = new google.maps.InfoWindow({
    content: AmphitheaterInfoContent
    });
    google.maps.event.addListener(AmphitheaterMarker, 'click', function() {
-   AmphitheaterInfoWindow.open(map,AmphitheaterMarker);
-   }); 	      
-
+   AmphitheaterInfoWindow.open(map,CathedralMarker);
+   }); 
+         
   var Waterfall = new google.maps.LatLng(42.629132,23.253803) 
         var WaterfallMarker = new google.maps.Marker({
  position: Waterfall,
@@ -88,7 +88,7 @@
  	WaterfallMarker.setMap(map);
       
      var WaterfallInfoContent = '<div class="infoBox">' +
-   '<p>Waterfall. Cooool</p>' +
+   '<p>This waterfall is considered the most beautiful and important natural beauties that Sofia has to offer. A short 5km hike through the Vitosha Mountains will take you to this serene place. Fun Fact: Sofia is full of natural springs that have potable water.</p>' +
    '</div>'
    var WaterfallInfoWindow = new google.maps.InfoWindow({
    content: WaterfallInfoContent
@@ -105,7 +105,7 @@ var Vitosha = new google.maps.LatLng(42.551707,23.249914)
  	VitoshaMarker.setMap(map);
       
      var VitoshaInfoContent = '<div class="infoBox">' +
-   '<p>Big Mountain</p>' +
+   '<p>Vitosha Mountain lies just on the outskirts of Sofia. With an elevation of 2,290 m (the Sandias have an elevation of 3,255m) the mountain is home to a variety flora and fauna and is a great source of outdoor activities such as hiking and skiing.</p>' +
    '</div>'
    var VitoshaInfoWindow = new google.maps.InfoWindow({
    content: VitoshaInfoContent
