@@ -28,7 +28,25 @@
           zoom: 18, 
           mapTypeId: google.maps.MapTypeId.HYBRID
         });
-      }
+        
+         var Pueblo = new google.maps.LatLng(36.060574,-107.961692) 
+        var PuebloMarker = new google.maps.Marker({
+ position: Pueblo,
+ 	title:"Pueblo Bonito"
+	});
+ 	PuebloMarker.setMap(map);
+    
+    var PuebloInfoContent = '<div class="infoBox">' +
+   '<p> Pueblo Bonito is spanish for Beautiful Town.</p>' +
+   '</div>'
+   var PuebloInfoWindow = new google.maps.InfoWindow({
+   content: PuebloInfoContent
+   });
+   google.maps.event.addListener(PuebloMarker, 'click', function() {
+   PuebloInfoWindow.open(map,PuebloMarker);
+   });  
+         
+        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbpPpvR5K4Gbs4_2Ft-ZDY0tpCdFZ4R34&callback=initMap"
     async defer></script>
