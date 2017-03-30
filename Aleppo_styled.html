@@ -21,6 +21,8 @@
     <div id="map" class="map"></div>
     <script type="text/javascript">
     
+    var projection = ol.proj.get('EPSG:3857');
+    
       var myOverviewMap = new ol.control.OverviewMap({collapsible:false, collapsed:false})
       var myScaleLine = new ol.control.ScaleLine()
       var myControls = ol.control.defaults({
@@ -28,13 +30,35 @@
 	rotate:true,
 	zoom:true
 }).extend([myOverviewMap,myScaleLine])
+
+var border_color = [188,143,143,.1]
+var border_line_color = [188,143,143,.9]
+
+var border_style = new ol.style.Style({
+	fill: new ol.style.Fill({
+	  color: border_color
+	}),
+	stroke: new ol.style.Stroke({
+	  color: border_line_color,
+	  width: 1
+	}),
+});
+
+	  var border_kml = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		url: 'https://ichudnoff.github.io/portfolio/SyriaBoundary.kml',
+		projection: projection,
+		format: new ol.format.KML({extractStyles:false})
+	}),
+		style: border_style
+})
     
       var map = new ol.Map({
         target: 'map',
         layers: [
           new ol.layer.Tile({
             source: new ol.source.OSM()
-          })
+          }),border_kml
         ],
         controls: myControls,
         view: new ol.View({
