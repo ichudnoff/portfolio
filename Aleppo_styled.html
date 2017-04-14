@@ -44,6 +44,83 @@ var border_style = new ol.style.Style({
 	}),
 });
 
+var stroke = new ol.style.Stroke({color: 'red', width: 2});
+      var fill = new ol.style.Fill({color: 'red'});
+
+var Point_style = new ol.style.Style({
+          image: new ol.style.RegularShape({
+            fill: fill,
+            stroke: stroke,
+            points: 4,
+            radius: 4,
+            angle: Math.PI / 4
+          })
+        })
+        
+var path_style = new ol.style.Style({
+	stroke: new ol.style.Stroke({
+	  color: 'red',
+	  width: 2
+	}),
+});
+        
+
+var AleppoCoord = [37.161622,36.207461]
+var AleppoPoint = new ol.geom.Point(ol.proj.fromLonLat(AleppoCoord, projection))
+
+var AleppoFeature = new ol.Feature({
+	geometry:AleppoPoint 	
+})
+
+var TurkCoord = [36.921284,37.571377]
+var TurkPoint = new ol.geom.Point(ol.proj.fromLonLat(TurkCoord, projection))
+
+var TurkFeature = new ol.Feature({
+	geometry:TurkPoint 	
+})
+
+var JordanCoord = [36.323750,32.295676]
+var JordanPoint = new ol.geom.Point(ol.proj.fromLonLat(JordanCoord, projection))
+
+var JordanFeature = new ol.Feature({
+	geometry:JordanPoint 	
+})
+
+
+var pathFeature = new ol.Feature({
+	geometry: new ol.geom.LineString([
+		AleppoCoord,
+		TurkCoord   				
+	]).transform('EPSG:4326',projection), // deal with projection issues between my features and and the map projection
+	description:"Refugee Path"
+})
+
+
+var JpathFeature = new ol.Feature({
+	geometry: new ol.geom.LineString([
+		AleppoCoord,
+		JordanCoord   				
+	]).transform('EPSG:4326',projection), // deal with projection issues between my features and and the map projection
+	description:"Refugee Path"
+})
+
+
+var local_geoms = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		features: [AleppoFeature, TurkFeature, JordanFeature]
+	}),
+			style: Point_style
+})
+
+
+var local_path = new ol.layer.Vector({
+	source: new ol.source.Vector({
+		features: [pathFeature, JpathFeature]
+	}),
+			style: path_style
+})
+
+
 	  var border_kml = new ol.layer.Vector({
 	source: new ol.source.Vector({
 		url: 'https://ichudnoff.github.io/portfolio/SyriaBoundary.kml',
@@ -59,7 +136,7 @@ var border_style = new ol.style.Style({
           new ol.layer.Tile({
             source: new ol.source.OSM()
           }),border_kml
-        ],
+        ,local_geoms, local_path],
         controls: myControls,
         view: new ol.View({
           center: ol.proj.fromLonLat([35.154407, 38.571369]),
