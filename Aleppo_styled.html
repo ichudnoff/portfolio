@@ -8,16 +8,21 @@
       }
       
       #map div.ol-viewport div.ol-overlaycontainer-stopevent div.ol-overviewmap.ol-unselectable.ol-control.ol-uncollapsible {
-	top: 400px;
+	top: 380px;
 	bottom: 300px;
       }
+    
+  .ol-scale-line.ol-unselectable {
+    top: 550px;
+    height: 50px;
+    }
       
     </style>
     <script src="https://openlayers.org/en/v4.0.1/build/ol.js" type="text/javascript"></script>
     <title>OpenLayers example</title>
   </head>
   <body>
-    <h2>Aleppo, Syria</h2>
+    <h2>Syria</h2>
     <div id="map" class="map"></div>
     <script type="text/javascript">
     
@@ -129,17 +134,38 @@ var local_path = new ol.layer.Vector({
 	}),
 		style: border_style
 })
+  
+var basemap_USGS = new ol.layer.Tile({
+	source: new ol.source.TileWMS({
+	url: 'https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WmsServer?',
+	  params: {
+		LAYERS: 0,
+		FORMAT: 'image/png',
+		TRANSPARENT: true
+	  },
+	  attributions: [
+	    new ol.Attribution({
+		  html: 'Data provided by the <a href="http://basemap.nationalmap.gov">National Map</a>.'
+		})
+	  ]
+	})
+})
+
+var basemap_OSM =new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
     
       var map = new ol.Map({
         target: 'map',
         layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          }),border_kml
-        ,local_geoms, local_path],
+        	basemap_USGS,
+        	border_kml,
+        	local_geoms,
+        	local_path
+        	],
         controls: myControls,
         view: new ol.View({
-          center: ol.proj.fromLonLat([35.154407, 38.571369]),
+          center: ol.proj.fromLonLat([38.641525, 35.290229]),
           zoom: 5
         })
       });
