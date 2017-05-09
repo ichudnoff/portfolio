@@ -138,12 +138,16 @@ var Shape3 = new ol.layer.Tile({
         target: 'map',
         layers: [
         	basemap_USGS,
-        	Tiff2
+        	Tiff1,
+        	Tiff2,
+        	Shape1,
+        	Shape2,
+        	Shape3,
         	],
         controls: myControls,
         view: new ol.View({
-          center: ol.proj.fromLonLat([-106.621584, 35.098943]),
-          zoom: 11
+          center: ol.proj.fromLonLat([ -106.624991, 35.071091]),
+          zoom: 12
           
           
         })
